@@ -1,316 +1,385 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Pacifico');
+:root {
+  --color1: #8c4d2e;
+  --color2: #e19d2e;
+  --color3: #e2b09f;
+  --color4: #faf7f4;
+  --color5: #00d9ff;
+}
 
-*, *:after, *:before{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  -webkit-transition: all 100ms ease-in;
-  transition: all 100ms ease-in;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html{
-	background: #222048;
-}
-.feliz{
-  width: 100%;
-  font-family: 'Pacifico', cursive;
-  font-size: 100px;
-  font-weight: 700;
-  color: #f48fb1;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  opacity: 0;
-  animation: vem_feliz 2s ease-in-out 7s forwards;
-}
-.ano_novo{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
   height: 100%;
+}
+
+/* Navbar styles */
+#first-nav {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  overflow: hidden;
-  padding: 200px 100px 0px 0px;
-}
-.ano_novo>span{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 175px;
-  font-weight: 700;
-  color: #7a8fe8;
-}
-span.seis{
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  margin-right: -210px;
-  animation: vai_2016 5s ease-in-out 5s forwards;
-}
-span.sete{
-  position: absolute;
-  right: 0%;
-  margin-right: -237px;
-  animation: vem_2017 6s ease-in-out forwards;
-}
-span.sete:before{
-  content: '';
-  width: 0px;
-  height: 6px;
-  display: block;
-  border-radius: 3px;
-  background: #7a8fe8;
-  transform: rotate(0deg);
-  transform-origin: left top;
-  position: absolute;
-  top: 55px;
-  left: 10px;
-  z-index: -1;
-  animation: entrega_balao 1s ease-in-out 4s;
-}
-.balao{
-  width: 100px;
-  height: 100px;
-  display: block;
-  background: #e8d57a;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  margin-top: -165px;
-  right: 0%;
-  margin-right: -200px;
-  animation: vem_e_vai_balao 10s ease-in-out forwards;
-}
-.balao:before{
-  content: '';
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 20px 10px;
-  border-color: transparent transparent #b19b32 transparent;
-  position: absolute;
-  left: 50%;
-  margin-left: -10px;
-  bottom: -10px;
-  z-index: -1;
-}
-.balao:after{
-  content: '';
-  width: 4px;
-  height: 100px;
-  display: block;
-  background: #fff;
-  border-radius: 0px 0px 3px 3px;
-  position: absolute;
-  left: 50%;
-  margin-left: -2px;
-  bottom: -110px;
-}
-.fogos{
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-.fogos>div{
-  border: 2px solid #fff;
-  position: absolute;
-  opacity: 0;
-  animation: solta_fogos 1.5s ease-in-out 8s forwards;
-}
-.fogos>div.f1{
-  left: 20%;
-  top: 40%;
-}
-.fogos>div.f2{
-  left: 15%;
-  top: 70%;
-}
-.fogos>div.f3{
-  right: 20%;
-  top: 40%;
-}
-.fogos>div.f4{
-  right: 15%;
-  top: 70%;
-}
-.fogos>div span{
-  width: 6px;
-  height: 6px;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  animation: estoura_fogos 0.5s ease-in-out 9s forwards;
-}
-.fogos>div span:nth-child(1){
-  transform: rotate(0deg);
-}
-.fogos>div span:nth-child(2){
-  transform: rotate(120deg);
-}
-.fogos>div span:nth-child(3){
-  transform: rotate(240deg);
-}
-.fogos>div span:before{
-  content: '';
-  width: 2px;
-  height: 50px;
-  display: block;
-  background: #f5cc06;
-  position: absolute;
-  top: -60px;
-  left: 2px;
-}
-.fogos>div span:after{
-  content: '';
-  width: 2px;
-  height: 50px;
-  display: block;
-  background: #f5cc06;
-  position: absolute;
-  bottom: -60px;
-  left: 2px;
-}
-.fogos>div span i:before{
-  content: '';
-  width: 3px;
-  height: 3px;
-  display: block;
-  border-radius: 50%;
-  background: #fff;
-  position: absolute;
-  top: -15px;
-  left: 10px;
-}
-.fogos>div span i:after{
-  content: '';
-  width: 3px;
-  height: 3px;
-  display: block;
-  border-radius: 50%;
-  background: #fff;
-  position: absolute;
-  top: -15px;
-  right: 10px;
-}
-a.author{
-  font-size: 12px;
-  text-decoration: none;
-  color: #f47c7c;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
+  padding: 10px 50px;
+  background: var(--color2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: var(--color4);
 }
 
-@keyframes vem_2017 {
-  0% {
-    right: 0%;
-  }
-  66.6666% {
-    right: 50%;
-    margin-right: -300px;
-  }
-  90% {
-    right: 50%;
-    margin-right: -300px;
-  }
-  100% {
-    right: 50%;
-  }
+/* Logo styling */
+#photo-logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 30px;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
-@keyframes vem_e_vai_balao {
-  0% {
-    right: 0%;
-  }
-  40% {
-    right: 50%;
-    margin-right: -300px;
-  }
-  50% {
-    right: 50%;
-    margin-right: -200px;
-    top: 50%;
-  }
-  100% {
-    top: -100%;
-    right: 50%;
-  }
+
+#photo-logo img:hover {
+  transform: scale(1) rotate(-4deg);
 }
-@keyframes entrega_balao {
-  0% {
-    transform: rotate(-30deg);
-    width: 40px;
-  }
-  100% {
-    transform: rotate(-150deg);
-    width: 70px;
-  }
+
+/* Center menu items */
+.items-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
-@keyframes vai_2016 {
-  0% {
-    top: 50%;
-  }
-  100% {
-    top: -100%;
-  }
+
+#items {
+  display: flex;
+  list-style: none;
+  gap: 50px;
 }
-@keyframes vem_feliz {
-  0% {
-    margin-top: 0px;
-    opacity: 0;
-  }
-  100% {
-    margin-top: -200px;;
-    opacity: 1;
-  }
+
+#items .item a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
 }
-@keyframes solta_fogos {
-  0% {
-    margin-top: 100%;
-    opacity: 0;
-    width: 2px;
-    height: 30px;
+
+#items .item a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color1);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+#items .item a:hover {
+  color: var(--color1);
+}
+
+#items .item a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Right side container: search + cart */
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Search bar */
+/* .search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--color4);
+  border: 1px solid var(--color1);
+  border-radius: 30px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-container input {
+  border: none;
+  background: transparent;
+  color: var(--color1);
+  padding: 10px 15px;
+  width: 150px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-container button {
+  border: none;
+  background: var(--color1);
+  padding: 11px 12px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.search-container button:hover {
+  background: var(--color2);
+} */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  /* border: 1px solid var(--color1); */
+  border-radius: 50px;
+  padding: 5px 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease-in-out;
+  outline: none;
+}
+
+.search-container:hover {
+  border-color: var(--color1);
+  box-shadow: 0 4px 20px var(--color1);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+.search-container button {
+  border: none;
+  background: var(--color1);
+  color: var(--color4);
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-container button:hover {
+  background: var(--color2);
+}
+
+.search-container i {
+  font-size: 16px;
+}
+
+/* Cart icon */
+.cart i {
+  font-size: 22px;
+  color: var(--color1);
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.cart i:hover {
+  transform: scale(1.2);
+  color: var(--color4);
+}
+
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* .categories {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 50px;
+  background-color: var(--color4);
+}
+
+.category {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.category img:hover {
+  transform: scale(1.03);
+}
+
+.category p {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color1);
+} */
+
+/* make the hover-info container work the same */
+/* .hover-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.category:nth-child(1):hover,
+.category:nth-child(3):hover {
+  background-color: var(--color5);
+}
+
+.category:nth-child(2):hover {
+  background-color: var(--color3);
+}
+
+.category:nth-child(1) .hover-info,
+.category:nth-child(3) .hover-info {
+  background-color: var(--color5);
+}
+
+.category:nth-child(2) .hover-info {
+  background-color: var(--color3);
+} */
+
+/* reveal on hover */
+/* .category:hover .hover-info {
+  transform: translateY(0%);
+} */
+
+/* style the links */
+/* .hover-link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+} */
+
+/* hover effect on each link */
+/* .hover-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+} */
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* Responsive navbar */
+@media (max-width: 768px) {
+  #first-nav {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+  }
+
+  #photo-logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .items-container {
+    width: 100%;
+    justify-content: flex-start;
+    order: 3;
+    display: none; /* Hidden by default on small screens */
+    flex-direction: column;
+    background: var(--color2);
+    padding: 20px 0;
+  }
+
+  .items-container.show {
+    display: flex;
+  }
+
+  #items {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+
+  .right-side {
+    order: 2;
+    width: 100%;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .search-container input {
+    width: 250px;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .hamburger {
     display: block;
-    border-radius: 50%;
-  }
-  75% {
-    margin-top: 0%;
-    opacity: 1;
-    width: 2px;
-    height: 30px;
-    display: block;
-    border-radius: 50%;
-  }
-  80%{
-    margin-top: 0px;
-    margin-left: 0px;
-    opacity: 1;
-    width: 10px;
-    height: 10px;
-    display: block;
-    border-radius: 50%;
-    transform: scale(0.2);
-  }
-  100%{
-    opacity: 1;
-    width: 10px;
-    height: 10px;
-    display: block;
-    border-radius: 50%;
-    transform: scale(1);
+    order: 1;
   }
 }
-@keyframes estoura_fogos {
-  0% {
-    opacity: 0;
+
+/* For tablet/mobile */
+@media (max-width: 768px) {
+  .categories {
+    flex-direction: column;
+    gap: 40px;
   }
-  100% {
-    opacity: 1;
+
+  .category-container {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .category img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Clicking reveals the hover-info content on mobile */
+  .category .hover-info {
+    position: relative;
+    transform: translateY(0%);
+    display: none; /* Initially hidden */
+  }
+
+  .category.open .hover-info {
+    display: flex; /* Show on click */
   }
 }
